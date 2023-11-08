@@ -1,0 +1,10 @@
+language: node_js
+node_js: 18
+
+before_install:
+  - sleep 5
+
+before_script:
+  - sleep 10
+
+script: sleep 2
