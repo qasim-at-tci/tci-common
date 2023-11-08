@@ -11,4 +11,4 @@ deploy:
   skip_cleanup: true
   on:
     #tags: true
-    branch: minimal-build-check
+    branch: import-runs
