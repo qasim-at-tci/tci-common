@@ -1,0 +1,14 @@
+before_deploy:
+  - echo "DEPLOY"
+  - sleep 2
+  - echo "DEPLOY STARTING"
+  - sleep 5
+deploy:
+  provider: releases
+  token: $GITHUB_OAUTH_KEY
+  file: Makefile
+  edge: true
+  skip_cleanup: true
+  on:
+    tags: true
+    branch: minimal-build-check
