@@ -4,11 +4,21 @@ before_deploy:
   - echo "DEPLOY STARTING"
   - sleep 5
 deploy:
-  provider: releases
-  token: $GITHUB_OAUTH_KEY
-  file: Makefile
-  edge: true
-  skip_cleanup: true
-  on:
-    tags: true
-    branch: import-runs
+  - provider: script
+    skip_cleanup: true
+    script: "sleep 5"
+    on:
+      branch: "import-runs"
+      condition: $deploy_import_runs = true
+  - provider: script
+    skip_cleanup: true
+    script: "sleep 10"
+    on:
+      branch: "main"
+      condition: $deploy_xyz = true
+  - provider: script
+    skip_cleanup: true
+    script: "sleep 15"
+    on:
+      tags: true
+      condition: $deploy_prod = true
