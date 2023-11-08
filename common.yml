@@ -1,0 +1,3 @@
+os: linux
+dist: jammy
+arch: amd64
